@@ -1,3 +1,4 @@
+var chart;
 /*
  * Function to draw the gauge
  */
@@ -10,7 +11,8 @@ function builtGaugeReactive() {
     if(Session.get('reactive') !== undefined)
         data[0] = Session.get('reactive');
     
-    $('#container-gauge-reactive').highcharts({
+    chart = $('#container-gauge-reactive').highcharts({
+        
         chart: {
             type: 'solidgauge'
         },
@@ -33,18 +35,12 @@ function builtGaugeReactive() {
         tooltip: {
             enabled: false
         },
-
+        
         yAxis: {
-            min: 0,
-            max: 200,
-            title: {
-                text: 'Speed'
-            },
-
             stops: [
-                [0.1, '#55BF3B'],
-                [0.5, '#DDDF0D'],
-                [0.9, '#DF5353']
+                [0.1, '#55BF3B'], // green
+                [0.5, '#DDDF0D'], // yellow
+                [0.9, '#DF5353'] // red
             ],
             lineWidth: 0,
             minorTickInterval: null,
@@ -55,9 +51,14 @@ function builtGaugeReactive() {
             },
             labels: {
                 y: 16
+            },
+            min: 0,
+            max: 200,
+            title: {
+                text: 'Speed'
             }
         },
-
+        
         plotOptions: {
             solidgauge: {
                 dataLabels: {
@@ -67,7 +68,7 @@ function builtGaugeReactive() {
                 }
             }
         },
-
+        
         credits: {
             enabled: false
         },
@@ -76,8 +77,8 @@ function builtGaugeReactive() {
             name: 'Speed',
             data: data,
             dataLabels: {
-                format: '<div style="text-align:center"><span style="font-size:25px;color:#7e7e7e">{y}</span><br/>' +
-                    '<span style="font-size:12px;color:silver">km/h</span></div>'
+                format: '<div style="text-align:center"><span style="font-size:25px;color:black">{y}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">km/h</span></div>'
             },
             tooltip: {
                 valueSuffix: ' km/h'
@@ -91,8 +92,8 @@ function builtGaugeReactive() {
  * Call the function to built the chart when the template is rendered
  */
 Template.gaugeReactiveDemo.rendered = function () {
-    this.autorun(function (c) {
-        builtGaugeReactive();
+    Tracker.autorun(function () {
+       builtGaugeReactive();
     });
 }
 
