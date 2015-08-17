@@ -7,4 +7,6 @@ meteor-platform
 autopublish
 insecure
 maazalik:highcharts
-
+maazalik:highcharts-3d
+maazalik:highcharts-gauge
+clarencel:highcharts-drilldown

@@ -5,7 +5,7 @@ function built3d() {
 
     $('#container-3d').highcharts({
         
-                chart: {
+      chart: {
             type: 'pie',
             options3d: {
                 enabled: true,
