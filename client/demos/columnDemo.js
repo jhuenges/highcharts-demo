@@ -2,7 +2,7 @@
  * Function to draw the column chart
  */
 function builtColumn() {
-
+    
     $('#container-column').highcharts({
         
         chart: {
