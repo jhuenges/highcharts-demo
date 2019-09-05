@@ -1,5 +1,6 @@
-highcharts-demo
-===============
+## This repository is no longer maintained.
+
+## highcharts-demo
 
 Examples for the [Meteor-Highcharts](https://github.com/MaazAli/Meteor-HighCharts) package by MaazAli.
 
